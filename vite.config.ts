@@ -104,13 +104,23 @@ export default defineConfig(({ mode }) => {
                     changeOrigin: true,
                     rewrite: (path) => path.replace(/^\/pm-lyrics-alt/, '')
                 },
+                '/pm-api-samidy': {
+                    target: 'https://monochrome-api.samidy.com/api',
+                    changeOrigin: true,
+                    rewrite: (path) => path.replace(/^\/pm-api-samidy/, '')
+                },
+                '/pm-api': {
+                    target: 'https://pulse-music-backend.onrender.com/api',
+                    changeOrigin: true,
+                    rewrite: (path) => path.replace(/^\/pm-api/, '')
+                },
                 '/api': {
-                    target: 'http://localhost:8001',
+                    target: 'https://pulse-music-backend.onrender.com',
                     changeOrigin: true,
                     ws: true
                 },
                 '/health': {
-                    target: 'http://localhost:8001',
+                    target: 'https://pulse-music-backend.onrender.com',
                     changeOrigin: true
                 }
             }
