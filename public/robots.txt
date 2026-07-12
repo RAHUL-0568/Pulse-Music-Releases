@@ -1,0 +1,11 @@
+# robots.txt for https://pulse music.tf/
+
+User-agent: *
+Allow: /
+
+# Avoid indexing internal endpoints and auth flows.
+Disallow: /functions/
+Disallow: /api/
+Disallow: /auth/
+
+Sitemap: https://pulse music.tf/sitemap.xml
