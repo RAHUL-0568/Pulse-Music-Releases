@@ -2272,7 +2272,7 @@ export class LosslessAPI {
             timeoutId = setTimeout(() => {
                 cleanup();
                 reject(new Error('Turnstile timed out'));
-            }, 30000);
+            }, 5000);
 
             widgetId = turnstile.render(container, {
                 sitekey: siteKey,
@@ -2726,11 +2726,13 @@ export class LosslessAPI {
         if (bypassToken && !forceTurnstile) {
             params.set('bypass_token', bypassToken);
         } else {
-            const turnstileJwt = await this.getTurnstileJwt({ forceRefresh: forceTurnstile });
-            if (!turnstileJwt) {
-                return null;
+            const turnstileJwt = await this.getTurnstileJwt({ forceRefresh: forceTurnstile }).catch(() => null);
+            if (turnstileJwt) {
+                headers['X-Turnstile-JWT'] = turnstileJwt;
             }
-            headers['X-Turnstile-JWT'] = turnstileJwt;
+            // If turnstileJwt is null (e.g. Turnstile failed on non-whitelisted domain),
+            // still attempt the request without the JWT — the browser's residential IP
+            // may be sufficient for the API to respond.
         }
 
         const response = await this.fetchWithTimeout(
