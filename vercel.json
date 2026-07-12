@@ -7,6 +7,8 @@
     { "source": "/pm-amazon/(.*)", "destination": "https://amz.geeked.wtf/$1" },
     { "source": "/pm-lyrics/(.*)", "destination": "https://lyricsplus.prjktla.workers.dev/$1" },
     { "source": "/pm-lyrics-alt/(.*)", "destination": "https://lyrics-plus-backend.vercel.app/$1" },
+    { "source": "/pm-api/(.*)", "destination": "https://api.monochrome.tf/$1" },
+    { "source": "/pm-api-samidy/(.*)", "destination": "https://monochrome-api.samidy.com/$1" },
     { "source": "/api/(.*)", "destination": "https://pulse-music-backend.onrender.com/api/$1" },
     { "source": "/health", "destination": "https://pulse-music-backend.onrender.com/health" },
     { "source": "/(.*)", "destination": "/index.html" }

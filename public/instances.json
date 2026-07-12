@@ -1,21 +1,21 @@
 {
   "api": [
     {
-      "url": "https://monochrome-api.samidy.com",
+      "url": "/pm-api",
       "version": "2.3"
     },
     {
-      "url": "https://api.monochrome.tf",
+      "url": "/pm-api-samidy",
       "version": "2.3"
     }
   ],
   "streaming": [
     {
-      "url": "https://monochrome-api.samidy.com",
+      "url": "/pm-api",
       "version": "2.3"
     },
     {
-      "url": "https://api.monochrome.tf",
+      "url": "/pm-api-samidy",
       "version": "2.3"
     }
   ]
